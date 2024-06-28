@@ -1,0 +1,15 @@
+name = "classification-api"
+main = "src/worker.ts"
+compatibility_date = "2024-06-28"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "classification-api"
+database_id = "d81eb41d-63b4-4404-a5c0-867cdd38b904"
+
+[[vectorize]]
+binding = "VECTORIZE_INDEX"
+index_name = "classification-api"
+
+[ai]
+binding = "AI"
