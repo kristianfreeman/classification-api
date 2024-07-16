@@ -58,7 +58,7 @@ app.delete("/classifications/:id", async c => {
     const id = c.req.param("id")
     await c.env.DB.prepare("delete from classifications where id = ?1").bind(id).run()
     await c.env.VECTORIZE_INDEX.deleteByIds([id])
-    return c.text("OK", 204)
+    return c.json({ id, destroyed: true }, 204)
   } catch (error: any) {
     return c.json({ error }, 500)
   }
@@ -66,6 +66,8 @@ app.delete("/classifications/:id", async c => {
 
 app.post("/classify", async c => {
   const { query } = await c.req.json()
+  if (!query) return c.json({ error: "No query provided" }, 400)
+
   const { data } = await c.env.AI.run(modelName, { text: [query] })
   const values = data[0]
 

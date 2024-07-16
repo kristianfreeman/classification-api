@@ -1,0 +1,15 @@
+API="classification-api.signalnerve.workers.dev"
+
+echo "Getting classification IDs..."
+
+IDS=$(xh -b $API/classifications | jq -r '.classifications[].id')
+
+echo $IDS
+
+for ID in $IDS; do
+    echo "\tDeleting $ID"
+    xh -b DELETE $API/classifications/$ID
+done
+
+echo "Done. Getting classifications"
+xh -b $API/classifications

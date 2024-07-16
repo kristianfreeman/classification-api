@@ -1,0 +1,3 @@
+API="https://classification-api.signalnerve.workers.dev"
+
+xh -b "$API/classifications"

@@ -1,0 +1,4 @@
+API="classification-api.signalnerve.workers.dev"
+QUERY="mp3 player"
+echo "Querying '$QUERY'..."
+xh -b "$API/classify" query="$QUERY"

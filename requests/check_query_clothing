@@ -1,0 +1,4 @@
+API="classification-api.signalnerve.workers.dev"
+QUERY="san antonio spurs hat"
+echo "Querying '$QUERY'..."
+xh -b "$API/classify" query="$QUERY"

@@ -1,0 +1,13 @@
+API="classification-api.signalnerve.workers.dev"
+
+# Create clothing classification
+xh -b "$API/classifications" text='clothing'
+
+# Create construction classification
+xh -b "$API/classifications" text='construction'
+
+# Create technology classification
+xh -b "$API/classifications" text='technology'
+
+# Then return them all back as a list
+xh -b "$API/classifications"
